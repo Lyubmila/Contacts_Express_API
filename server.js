@@ -6,6 +6,7 @@ const helmet = require('helmet')
 const mongoConfig = require('./config/mongoConfig')
 const contactRouter = require('./routes/contactRouter')
 const userRouter = require('./routes/userRouter')
+const authRouter = require('./routes/authRouther')
 
 const app = express()
 const PORT = 5005
@@ -18,6 +19,7 @@ app.use(helmet())
 // routers
 app.use('/contacts', contactRouter)
 app.use('/users', userRouter)
+app.use('/auth', authRouter)
 
 app.get('/', (req, res) =>{
     res.status(200).json("Welcome to my API!")
